@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct HomeTeamView: View {
-    let home = franceLineUp
+    let home: LineUp
 
     var body: some View {
         VStack {
+            Text("\(home.team.name), \(home.formation)")
+                .accessibilityAddTraits(.isHeader)
                         ForEach(Array(realFormation.enumerated()), id: \.offset) { index, fLine in
                     HStack {
 
@@ -47,5 +49,5 @@ struct HomeTeamView: View {
 }
 
 #Preview {
-    HomeTeamView()
+    HomeTeamView(home: brazilLineUp)
 }

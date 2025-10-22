@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct AwayTeamView: View {
-    let away = franceLineUp
+    let away: LineUp
+    let sortingPriority: Double
 
     var body: some View {
         VStack {
             Text("\(away.team.name) (\(away.formation))")
                 .accessibilityAddTraits(.isHeader)
+                .accessibilitySortPriority(sortingPriority + 0.95)
             ForEach(Array(realFormation.enumerated()), id: \.offset) { index, fLine in
                 HStack {
 
                     ForEach(0..<fLine) { pos in
                         PlayerView(player: playersByPosition[index][pos])
-                            .accessibilitySortPriority(sortingPriority[index][pos])
+                            .accessibilitySortPriority(playerSortingPriority[index][pos])
                     }
                 }
             }
@@ -31,15 +33,15 @@ struct AwayTeamView: View {
         ([1] + away.formation).reversed()
     }
 
-    var sortingPriority: [[Double]] {
+    var playerSortingPriority: [[Double]] {
 
-        var initial = -12.0
+        var initial = sortingPriority
 var priorities = [[Double]]()
         for (i, l) in playersByPosition.enumerated() {
             priorities.append([Double]())
             for p in l {
                 priorities[i].append(initial)
-                initial += 1
+                                initial += 0.08
 
             }
 
@@ -69,5 +71,5 @@ var priorities = [[Double]]()
 }
 
 #Preview {
-    AwayTeamView()
+    AwayTeamView(away: franceLineUp, sortingPriority: 1)
 }
