@@ -12,15 +12,16 @@ struct HomeTeamView: View {
 
     var body: some View {
         VStack {
-            Text("\(home.team.name), \(home.formation)")
+            Text("\(home.team.name), \(home.formationAsString)")
                 .accessibilityAddTraits(.isHeader)
-                        ForEach(Array(realFormation.enumerated()), id: \.offset) { index, fLine in
-                    HStack {
+            ForEach(playersByPosition, id: \.self) { sector in
 
-                        ForEach(0..<fLine) { pos in
-                            PlayerView(player: playersByPosition[index][pos])
-                        }
+                HStack {
+                    ForEach(sector, id: \.number) { player in
+                        PlayerView(player: player)
                     }
+                }
+
             }
         }
     }
@@ -33,18 +34,20 @@ struct HomeTeamView: View {
     var playersByPosition: [[Player]] {
 
         var players = home.getStartingLineUp()
-        var toReturn = [[Player]]()
-        for (i, p) in realFormation.enumerated() {
-            toReturn.append([Player]())
-            for _ in 0..<p {
+        var sectors = [[Player]]()
+
+        for (i, sec) in realFormation.enumerated() {
+
+            sectors.append([Player]())
+            for _ in 0..<sec {
+
                 let player = players.removeFirst()
-                                toReturn[i].append(player)
+                sectors[i].append(player)
             }
 
         }
 
-
-        return toReturn
+        return sectors
     }
 }
 

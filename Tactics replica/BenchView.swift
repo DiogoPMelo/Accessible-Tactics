@@ -20,7 +20,8 @@ struct BenchView: View {
                     Text("\(player.number)")
                     Text(player.name)
                 }
-                .accessibilityElement(children: .combine)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("\(player.number), \(player.name) (\(player.position.rawValue.capitalized)")
             }
             Text("Coach: \(team.team.coach)")
         }

@@ -32,7 +32,7 @@ struct PlayerView: View {
                 .multilineTextAlignment(.center)
         }
         // Accessibility: make it one logical element for VoiceOver
-        .accessibilityElement(children: .combine)
-//        .accessibilityLabel("\(name), number \(number)")
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(player.number), \(player.name) (\(player.position.rawValue.capitalized)")
     }
 }

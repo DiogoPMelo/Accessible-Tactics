@@ -7,21 +7,29 @@
 
 import SwiftUI
 
+struct AwayPlayer: Codable, Hashable {
+
+    let player: Player
+    let priority: Double
+}
+
 struct AwayTeamView: View {
     let away: LineUp
     let sortingPriority: Double
 
     var body: some View {
         VStack {
-            Text("\(away.team.name) (\(away.formation))")
+            Text("\(away.team.name) (\(away.formationAsString))")
                 .accessibilityAddTraits(.isHeader)
                 .accessibilitySortPriority(sortingPriority + 0.95)
-            ForEach(Array(realFormation.enumerated()), id: \.offset) { index, fLine in
-                HStack {
 
-                    ForEach(0..<fLine) { pos in
-                        PlayerView(player: playersByPosition[index][pos])
-                            .accessibilitySortPriority(playerSortingPriority[index][pos])
+            ForEach(playersByPosition, id: \.self) { sector in
+
+                HStack {
+                    ForEach(sector, id: \.self) { player in
+
+                        PlayerView(player: player.player)
+                            .accessibilitySortPriority(player.priority)
                     }
                 }
             }
@@ -33,40 +41,28 @@ struct AwayTeamView: View {
         ([1] + away.formation).reversed()
     }
 
-    var playerSortingPriority: [[Double]] {
-
-        var initial = sortingPriority
-var priorities = [[Double]]()
-        for (i, l) in playersByPosition.enumerated() {
-            priorities.append([Double]())
-            for p in l {
-                priorities[i].append(initial)
-                                initial += 0.08
-
-            }
-
-        }
-
-        return priorities
-
-    }
-
-    var playersByPosition: [[Player]] {
+    var playersByPosition: [[AwayPlayer]] {
 
         var players = away.getStartingLineUp()
+
         players.reverse()
-        var toReturn = [[Player]]()
-        for (i, p) in realFormation.enumerated() {
-            toReturn.append([Player]())
-            for _ in 0..<p {
+
+        var sectors = [[AwayPlayer]]()
+        var priority = sortingPriority
+
+        for (i, sec) in realFormation.enumerated() {
+
+            sectors.append([AwayPlayer]())
+            for _ in 0..<sec {
                 let player = players.removeFirst()
-                toReturn[i].append(player)
+                sectors[i].append(AwayPlayer(player: player, priority: priority))
+                priority += 0.08
             }
 
         }
 
 
-        return toReturn
+        return sectors
     }
 }
 

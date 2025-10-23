@@ -10,12 +10,12 @@ import Foundation
 let franceLineUp = LineUp(team: france2000,
                           formation: [4, 3, 2, 1],
                           starting: [16, 15, 5, 8, 3, 4, 7, 17, 6, 10, 12],
-                          bench: [1, 2, 18, 19, 11, 20])
+                          bench: [1, 2, 18, 19, 11, 13, 20])
 
 let brazilLineUp = LineUp(team: brazil2002,
                           formation: [3, 4, 2, 1],
                           starting: [1, 3, 4, 5, 2, 15, 8, 6, 11, 10, 9],
-                          bench: [12, 13, 14, 16, 7, 21])
+                          bench: [12, 13, 14, 16, 7, 17, 21])
 
 let greeceLineUp = LineUp(team: greece2004,
                           formation: [5, 4, 1],

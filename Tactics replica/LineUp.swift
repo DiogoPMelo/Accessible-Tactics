@@ -24,7 +24,12 @@ struct LineUp {
 
     func getSubstitutes() -> [Player] {
 
-        team.players.filter { bench.contains($0.number) }
+        team.players.filter { bench.contains($0.number) }.sorted()
+    }
+
+    var formationAsString: String {
+
+        formation.map {String($0) }.joined(separator: "-")
     }
 }
 
@@ -35,7 +40,7 @@ struct Team: Codable, Hashable {
     let players: [Player]
 }
 
-struct Player: Codable, Hashable {
+struct Player: Codable, Hashable, Comparable {
 
     let number: Int
     let name: String
@@ -44,12 +49,25 @@ struct Player: Codable, Hashable {
     let age: Int     // in 2002
     let position: Position
 
-    enum Position: String, Codable {
+    enum Position: String, CaseIterable, Comparable, Codable {
         case goalkeeper
         case defender
         case midfielder
         case forward
 
+        static func < (lhs: Self, rhs: Self) -> Bool {
+            allCases.firstIndex(of: lhs)! < allCases.firstIndex(of: rhs)!
+        }
+    }
+
+    static func < (lhs: Self, rhs: Self) -> Bool {
+
+        if lhs.position == rhs.position {
+
+            return lhs.number < rhs.number
+        } else {
+            return lhs.position < rhs.position
+        }
     }
 }
 
