@@ -11,7 +11,7 @@ import SwiftUI
 struct Tactics_replicaApp: App {
     var body: some Scene {
         WindowGroup {
-            LineUpsView()
+            MainTabView()
         }
     }
 }

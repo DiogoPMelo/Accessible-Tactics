@@ -12,7 +12,8 @@ struct HomeTeamView: View {
 
     var body: some View {
         VStack {
-            Text("\(home.team.name), \(home.formationAsString)")
+            Text(home.lineUpHeading)
+                .accessibilityLabel("Home team: \(home.lineUpHeading)")
                 .accessibilityAddTraits(.isHeader)
             ForEach(playersByPosition, id: \.self) { sector in
 

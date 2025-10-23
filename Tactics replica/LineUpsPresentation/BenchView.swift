@@ -12,7 +12,7 @@ struct BenchView: View {
 
     var body: some View {
         VStack {
-            Text("\(team.team.name) bench")
+            Text("\(team.shortName) substitutes:")
                 .accessibilityAddTraits(.isHeader)
 
             ForEach(team.getSubstitutes(), id: \.number) { player in

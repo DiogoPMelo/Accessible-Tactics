@@ -31,6 +31,21 @@ struct LineUp {
 
         formation.map {String($0) }.joined(separator: "-")
     }
+
+    var name: String {
+
+        team.name
+    }
+
+    var shortName: String {
+
+        team.name.components(separatedBy: " ")[0]
+    }
+
+    var lineUpHeading: String {
+
+"\(shortName): \(formationAsString)"
+    }
 }
 
 struct Team: Codable, Hashable {

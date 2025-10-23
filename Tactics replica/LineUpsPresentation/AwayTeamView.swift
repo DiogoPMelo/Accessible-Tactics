@@ -19,7 +19,8 @@ struct AwayTeamView: View {
 
     var body: some View {
         VStack {
-            Text("\(away.team.name) (\(away.formationAsString))")
+            Text(away.lineUpHeading)
+                .accessibilityLabel("Away team: \(away.lineUpHeading)")
                 .accessibilityAddTraits(.isHeader)
                 .accessibilitySortPriority(sortingPriority + 0.95)
 

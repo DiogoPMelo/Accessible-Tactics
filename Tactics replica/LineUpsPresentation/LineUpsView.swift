@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct LineUpsView: View {
-    let homeTeam: LineUp = greeceLineUp
-    let awayTeam: LineUp = italyLineUp
+    let homeTeam: LineUp
+    let awayTeam: LineUp
 
     var body: some View {
         ScrollView {
             Group {
-                Text("Awesome Match")
                 HomeTeamView(home: homeTeam)
             }
             .accessibilitySortPriority(3)
@@ -38,5 +37,5 @@ BenchView(team: homeTeam)
 }
 
 #Preview {
-    LineUpsView()
+    LineUpsView(homeTeam: brazilLineUp, awayTeam: franceLineUp)
 }
