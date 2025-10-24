@@ -7,62 +7,52 @@
 
 import SwiftUI
 
-struct AwayPlayer: Codable, Hashable {
-
-    let player: Player
-    let priority: Double
-}
-
 struct AwayTeamView: View {
     let away: LineUp
     let sortingPriority: Double
-
+    
     var body: some View {
         VStack {
             Text(away.lineUpHeading)
-                .accessibilityLabel("Away team: \(away.lineUpHeading)")
+                .accessibilityLabel("Away team: \(away.lineUpLabel)")
                 .accessibilityAddTraits(.isHeader)
                 .accessibilitySortPriority(sortingPriority + 0.95)
-
+            
             ForEach(playersByPosition, id: \.self) { sector in
-
+                
                 HStack {
                     ForEach(sector, id: \.self) { player in
-
-                        PlayerView(player: player.player)
+                        
+                        PlayerView(model: player)
                             .accessibilitySortPriority(player.priority)
                     }
                 }
             }
         }
     }
-
-    var realFormation: [Int] {
-
-        ([1] + away.formation).reversed()
-    }
-
-    var playersByPosition: [[AwayPlayer]] {
-
+    
+    var playersByPosition: [[PlayerViewModel]] {
+        
         var players = away.getStartingLineUp()
-
+        
         players.reverse()
-
-        var sectors = [[AwayPlayer]]()
+        
+        var sectors = [[PlayerViewModel]]()
         var priority = sortingPriority
-
-        for (i, sec) in realFormation.enumerated() {
-
-            sectors.append([AwayPlayer]())
-            for _ in 0..<sec {
+        let realFormation = away.realFormation()
+        
+        for (i, sec) in realFormation.reversed().enumerated() {
+            
+            sectors.append([PlayerViewModel]())
+            for _ in 0..<sec.numberOfPlayers {
                 let player = players.removeFirst()
-                sectors[i].append(AwayPlayer(player: player, priority: priority))
+                sectors[i].append(PlayerViewModel(player: player, position: sec.position, priority: priority))
                 priority += 0.08
             }
-
+            
         }
-
-
+        
+        
         return sectors
     }
 }

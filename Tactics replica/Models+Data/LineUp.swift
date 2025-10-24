@@ -22,14 +22,42 @@ struct LineUp {
         }
     }
 
-    func getSubstitutes() -> [Player] {
+    func realFormation() -> [(numberOfPlayers: Int, position: Player.Position)] {
 
-        team.players.filter { bench.contains($0.number) }.sorted()
+        let realTactic = [1] + formation
+        var sectorsNamed = [(Int, Player.Position)]()
+
+        for (i, t) in realTactic.enumerated() {
+
+            switch (i) {
+                case 0:
+                    sectorsNamed.append((t, .goalkeeper))
+                case 1:
+                    sectorsNamed.append((t, .defender))
+                case (realTactic.count - 1):
+                    sectorsNamed.append((t, .forward))
+                default:
+                    sectorsNamed.append((t, .midfielder))
+            }
+        }
+
+        return sectorsNamed
     }
 
-    var formationAsString: String {
+    func getSubstitutes() -> [Player] {
 
-        formation.map {String($0) }.joined(separator: "-")
+        if bench.isEmpty {
+
+return createBench()
+        } else {
+
+            return team.players.filter { bench.contains($0.number) }.sorted()
+        }
+    }
+
+    private func createBench() -> [Player] {
+
+        team.players.filter { !starting.contains(($0.number) )}.sorted()
     }
 
     var name: String {
@@ -46,6 +74,21 @@ struct LineUp {
 
 "\(shortName): \(formationAsString)"
     }
+
+    var lineUpLabel: String {
+
+        "\(shortName): \(formationAsLabel)"
+    }
+
+    private var formationAsString: String {
+
+        formation.map {String($0) }.joined(separator: "-")
+    }
+
+    private var formationAsLabel: String {
+
+        formation.map {String($0) }.joined(separator: ", ")
+    }
 }
 
 struct Team: Codable, Hashable {
@@ -61,8 +104,17 @@ struct Player: Codable, Hashable, Comparable {
     let name: String
     let club: String
     let height: Int  // cm
-    let age: Int     // in 2002
+    let age: Int
     let position: Position
+
+    var nameNumber: String {
+
+    "\(number) \(name)"
+    }
+    var positionAsString: String {
+
+        position.asString
+    }
 
     enum Position: String, CaseIterable, Comparable, Codable {
         case goalkeeper
@@ -70,6 +122,10 @@ struct Player: Codable, Hashable, Comparable {
         case midfielder
         case forward
 
+        var asString: String {
+
+            self.rawValue.capitalized
+        }
         static func < (lhs: Self, rhs: Self) -> Bool {
             allCases.firstIndex(of: lhs)! < allCases.firstIndex(of: rhs)!
         }

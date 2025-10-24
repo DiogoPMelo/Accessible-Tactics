@@ -26,6 +26,7 @@ struct LineUpsView: View {
                 HStack {
 BenchView(team: homeTeam)
                         .accessibilitySortPriority(0.9)
+
                     BenchView(team: awayTeam)
                         .accessibilitySortPriority(0.8)
                 }

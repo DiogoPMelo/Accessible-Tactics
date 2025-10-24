@@ -9,45 +9,40 @@ import SwiftUI
 
 struct HomeTeamView: View {
     let home: LineUp
-
+    
     var body: some View {
         VStack {
             Text(home.lineUpHeading)
-                .accessibilityLabel("Home team: \(home.lineUpHeading)")
+                .accessibilityLabel("Home team: \(home.lineUpLabel)")
                 .accessibilityAddTraits(.isHeader)
             ForEach(playersByPosition, id: \.self) { sector in
-
+                
                 HStack {
-                    ForEach(sector, id: \.number) { player in
-                        PlayerView(player: player)
+                    ForEach(sector, id: \.self) { player in
+                        PlayerView(model: player)
                     }
                 }
-
+                
             }
         }
     }
-
-    var realFormation: [Int] {
-
-        [1] + home.formation
-    }
-
-    var playersByPosition: [[Player]] {
-
+    
+    var playersByPosition: [[PlayerViewModel]] {
+        
         var players = home.getStartingLineUp()
-        var sectors = [[Player]]()
-
-        for (i, sec) in realFormation.enumerated() {
-
-            sectors.append([Player]())
-            for _ in 0..<sec {
-
+        var sectors = [[PlayerViewModel]]()
+        
+        for (i, sec) in home.realFormation().enumerated() {
+            
+            sectors.append([PlayerViewModel]())
+            for _ in 0..<sec.numberOfPlayers {
+                
                 let player = players.removeFirst()
-                sectors[i].append(player)
+                sectors[i].append(PlayerViewModel(player: player, position: sec.position, priority: 0))
             }
-
+            
         }
-
+        
         return sectors
     }
 }

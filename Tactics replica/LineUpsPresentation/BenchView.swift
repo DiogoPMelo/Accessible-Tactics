@@ -16,12 +16,17 @@ struct BenchView: View {
                 .accessibilityAddTraits(.isHeader)
 
             ForEach(team.getSubstitutes(), id: \.number) { player in
-                HStack {
-                    Text("\(player.number)")
-                    Text(player.name)
+                NavigationLink(destination: {
+
+PlayerDetailedView(player: player)
+                }) {
+                    HStack {
+                        Text("\(player.number)")
+                        Text(player.name)
+                    }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel("\(player.number), \(player.name) (\(player.positionAsString)")
                 }
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel("\(player.number), \(player.name) (\(player.position.rawValue.capitalized)")
             }
             Text("Coach: \(team.team.coach)")
         }
