@@ -31,22 +31,21 @@ struct AwayTeamView: View {
         }
     }
     
-    var playersByPosition: [[PlayerViewModel]] {
+    var playersByPosition: [[PlayerDisplayModel]] {
         
         var players = away.getStartingLineUp()
-        
         players.reverse()
         
-        var sectors = [[PlayerViewModel]]()
+        var sectors = [[PlayerDisplayModel]]()
         var priority = sortingPriority
         let realFormation = away.realFormation()
         
         for (i, sec) in realFormation.reversed().enumerated() {
             
-            sectors.append([PlayerViewModel]())
+            sectors.append([PlayerDisplayModel]())
             for _ in 0..<sec.numberOfPlayers {
                 let player = players.removeFirst()
-                sectors[i].append(PlayerViewModel(player: player, position: sec.position, priority: priority))
+                sectors[i].append(PlayerDisplayModel(player: player, position: sec.position, priority: priority))
                 priority += 0.08
             }
             

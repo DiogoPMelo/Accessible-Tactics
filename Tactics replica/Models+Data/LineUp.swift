@@ -111,6 +111,16 @@ struct Player: Codable, Hashable, Comparable {
 
     "\(number) \(name)"
     }
+
+    var lastName: String {
+
+        let names = name.components(separatedBy: " ")
+
+        return names.count <= 2 ?
+        names.last! :
+        names[1..<names.count].joined(separator: " ")
+    }
+
     var positionAsString: String {
 
         position.asString

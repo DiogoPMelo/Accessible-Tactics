@@ -22,10 +22,10 @@ PlayerDetailedView(player: player)
                 }) {
                     HStack {
                         Text("\(player.number)")
-                        Text(player.name)
+                        Text(player.lastName)
                     }
                     .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("\(player.number), \(player.name) (\(player.positionAsString)")
+                    .accessibilityLabel("\(player.number), \(player.lastName) (\(player.positionAsString)")
                 }
             }
             Text("Coach: \(team.team.coach)")

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlayerViewModel: Codable, Hashable {
+struct PlayerDisplayModel: Codable, Hashable {
 
     let player: Player
     let position: Player.Position
@@ -15,7 +15,7 @@ struct PlayerViewModel: Codable, Hashable {
 }
 
 struct PlayerView: View {
-    let model: PlayerViewModel
+    let model: PlayerDisplayModel
 
     var body: some View {
         NavigationLink(destination: {
@@ -51,5 +51,5 @@ struct PlayerView: View {
 }
 
 #Preview {
-    PlayerView(model: PlayerViewModel(player: brazil2002.players.randomElement()!, position: .midfielder, priority: 0))
+    PlayerView(model: PlayerDisplayModel(player: brazil2002.players.randomElement()!, position: .midfielder, priority: 0))
 }

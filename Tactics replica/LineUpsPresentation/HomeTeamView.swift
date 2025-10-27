@@ -27,18 +27,18 @@ struct HomeTeamView: View {
         }
     }
     
-    var playersByPosition: [[PlayerViewModel]] {
+    var playersByPosition: [[PlayerDisplayModel]] {
         
         var players = home.getStartingLineUp()
-        var sectors = [[PlayerViewModel]]()
+        var sectors = [[PlayerDisplayModel]]()
         
         for (i, sec) in home.realFormation().enumerated() {
             
-            sectors.append([PlayerViewModel]())
+            sectors.append([PlayerDisplayModel]())
             for _ in 0..<sec.numberOfPlayers {
                 
                 let player = players.removeFirst()
-                sectors[i].append(PlayerViewModel(player: player, position: sec.position, priority: 0))
+                sectors[i].append(PlayerDisplayModel(player: player, position: sec.position, priority: 0))
             }
             
         }
