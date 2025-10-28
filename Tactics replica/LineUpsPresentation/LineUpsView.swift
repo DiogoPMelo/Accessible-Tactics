@@ -13,26 +13,25 @@ struct LineUpsView: View {
 
     var body: some View {
         ScrollView {
-            Group {
-                HomeTeamView(home: homeTeam)
-            }
-            .accessibilitySortPriority(3)
+
+            HomeTeamView(home: homeTeam)
+                .accessibilitySortPriority(3)
+
             AwayTeamView(away: awayTeam,
-            sortingPriority: 2)
-            Group {
-                Text("Substitutes")
-                    .accessibilityAddTraits(.isHeader)
-                    .accessibilitySortPriority(1)
-                HStack {
-BenchView(team: homeTeam)
-                        .accessibilitySortPriority(0.9)
+                         sortingPriority: 2)
 
-                    BenchView(team: awayTeam)
-                        .accessibilitySortPriority(0.8)
-                }
+            Text("Substitutes")
+                .font(.subheadline)
+                .accessibilityAddTraits(.isHeader)
+                .accessibilitySortPriority(1)
+
+            HStack {
+                BenchView(team: homeTeam)
+                    .accessibilitySortPriority(0.9)
+
+                BenchView(team: awayTeam)
+                    .accessibilitySortPriority(0.8)
             }
-
-
         }
     }
 }

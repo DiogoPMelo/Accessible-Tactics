@@ -13,6 +13,7 @@ struct HomeTeamView: View {
     var body: some View {
         VStack {
             Text(home.lineUpHeading)
+                .font(.headline)
                 .accessibilityLabel("Home team: \(home.lineUpLabel)")
                 .accessibilityAddTraits(.isHeader)
             ForEach(playersByPosition, id: \.self) { sector in
@@ -38,7 +39,7 @@ struct HomeTeamView: View {
             for _ in 0..<sec.numberOfPlayers {
                 
                 let player = players.removeFirst()
-                sectors[i].append(PlayerDisplayModel(player: player, position: sec.position, priority: 0))
+                sectors[i].append(PlayerDisplayModel(player: player, position: sec.position.asString, priority: 0))
             }
             
         }

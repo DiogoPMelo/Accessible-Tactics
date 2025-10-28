@@ -100,6 +100,22 @@ struct Team: Codable, Hashable {
 
 struct Player: Codable, Hashable, Comparable {
 
+    enum Position: String, CaseIterable, Comparable, Codable {
+        case goalkeeper
+        case defender
+        case midfielder
+        case forward
+
+        var asString: String {
+
+            self.rawValue.capitalized
+        }
+
+        static func < (lhs: Self, rhs: Self) -> Bool {
+            allCases.firstIndex(of: lhs)! < allCases.firstIndex(of: rhs)!
+        }
+    }
+
     let number: Int
     let name: String
     let club: String
@@ -112,13 +128,9 @@ struct Player: Codable, Hashable, Comparable {
     "\(number) \(name)"
     }
 
-    var lastName: String {
+    var benchLabel: String {
 
-        let names = name.components(separatedBy: " ")
-
-        return names.count <= 2 ?
-        names.last! :
-        names[1..<names.count].joined(separator: " ")
+        "\(number). \(lastName), \(positionAsString)"
     }
 
     var positionAsString: String {
@@ -126,19 +138,13 @@ struct Player: Codable, Hashable, Comparable {
         position.asString
     }
 
-    enum Position: String, CaseIterable, Comparable, Codable {
-        case goalkeeper
-        case defender
-        case midfielder
-        case forward
+    var lastName: String {
 
-        var asString: String {
+        let names = name.components(separatedBy: " ")
 
-            self.rawValue.capitalized
-        }
-        static func < (lhs: Self, rhs: Self) -> Bool {
-            allCases.firstIndex(of: lhs)! < allCases.firstIndex(of: rhs)!
-        }
+        return names.count <= 2 ?
+        names.last! :
+        names[1..<names.count].joined(separator: " ")
     }
 
     static func < (lhs: Self, rhs: Self) -> Bool {
@@ -150,5 +156,5 @@ struct Player: Codable, Hashable, Comparable {
             return lhs.position < rhs.position
         }
     }
-}
+    }
 

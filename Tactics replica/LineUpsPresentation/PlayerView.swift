@@ -10,7 +10,7 @@ import SwiftUI
 struct PlayerDisplayModel: Codable, Hashable {
 
     let player: Player
-    let position: Player.Position
+    let position: String
     let priority: Double
 }
 
@@ -44,12 +44,12 @@ struct PlayerView: View {
             }
         }
         // Accessibility: make it one logical element for VoiceOver
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(model.player.nameNumber), \(model.position.asString)")
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(model.player.nameNumber), \(model.position)")
         .accessibilityAddTraits(.isButton)
     }
 }
 
 #Preview {
-    PlayerView(model: PlayerDisplayModel(player: brazil2002.players.randomElement()!, position: .midfielder, priority: 0))
+    PlayerView(model: PlayerDisplayModel(player: brazil2002.players.randomElement()!, position: "Forward", priority: 0))
 }
