@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2EC55F3B2EA8DE4800588CCC /* Tactics replica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tactics replica.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EC55F482EA8DE5100588CCC /* Tactics replicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tactics replicaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EC55F522EA8DE5100588CCC /* Tactics replicaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tactics replicaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC55F3B2EA8DE4800588CCC /* AccessibleTactics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibleTactics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC55F482EA8DE5100588CCC /* AccessibleTacticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibleTacticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EC55F522EA8DE5100588CCC /* AccessibleTacticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibleTacticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -85,9 +85,9 @@
 		2EC55F3C2EA8DE4800588CCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2EC55F3B2EA8DE4800588CCC /* Tactics replica.app */,
-				2EC55F482EA8DE5100588CCC /* Tactics replicaTests.xctest */,
-				2EC55F522EA8DE5100588CCC /* Tactics replicaUITests.xctest */,
+				2EC55F3B2EA8DE4800588CCC /* AccessibleTactics.app */,
+				2EC55F482EA8DE5100588CCC /* AccessibleTacticsTests.xctest */,
+				2EC55F522EA8DE5100588CCC /* AccessibleTacticsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2EC55F3A2EA8DE4800588CCC /* Tactics replica */ = {
+		2EC55F3A2EA8DE4800588CCC /* AccessibleTactics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EC55F5C2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "Tactics replica" */;
+			buildConfigurationList = 2EC55F5C2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "AccessibleTactics" */;
 			buildPhases = (
 				2EC55F372EA8DE4800588CCC /* Sources */,
 				2EC55F382EA8DE4800588CCC /* Frameworks */,
@@ -110,16 +110,16 @@
 			fileSystemSynchronizedGroups = (
 				2EC55F3D2EA8DE4800588CCC /* Tactics replica */,
 			);
-			name = "Tactics replica";
+			name = AccessibleTactics;
 			packageProductDependencies = (
 			);
 			productName = "Tactics replica";
-			productReference = 2EC55F3B2EA8DE4800588CCC /* Tactics replica.app */;
+			productReference = 2EC55F3B2EA8DE4800588CCC /* AccessibleTactics.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2EC55F472EA8DE5100588CCC /* Tactics replicaTests */ = {
+		2EC55F472EA8DE5100588CCC /* AccessibleTacticsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EC55F5F2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "Tactics replicaTests" */;
+			buildConfigurationList = 2EC55F5F2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "AccessibleTacticsTests" */;
 			buildPhases = (
 				2EC55F442EA8DE5100588CCC /* Sources */,
 				2EC55F452EA8DE5100588CCC /* Frameworks */,
@@ -133,16 +133,16 @@
 			fileSystemSynchronizedGroups = (
 				2EC55F4B2EA8DE5100588CCC /* Tactics replicaTests */,
 			);
-			name = "Tactics replicaTests";
+			name = AccessibleTacticsTests;
 			packageProductDependencies = (
 			);
 			productName = "Tactics replicaTests";
-			productReference = 2EC55F482EA8DE5100588CCC /* Tactics replicaTests.xctest */;
+			productReference = 2EC55F482EA8DE5100588CCC /* AccessibleTacticsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2EC55F512EA8DE5100588CCC /* Tactics replicaUITests */ = {
+		2EC55F512EA8DE5100588CCC /* AccessibleTacticsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EC55F622EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "Tactics replicaUITests" */;
+			buildConfigurationList = 2EC55F622EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "AccessibleTacticsUITests" */;
 			buildPhases = (
 				2EC55F4E2EA8DE5100588CCC /* Sources */,
 				2EC55F4F2EA8DE5100588CCC /* Frameworks */,
@@ -156,11 +156,11 @@
 			fileSystemSynchronizedGroups = (
 				2EC55F552EA8DE5100588CCC /* Tactics replicaUITests */,
 			);
-			name = "Tactics replicaUITests";
+			name = AccessibleTacticsUITests;
 			packageProductDependencies = (
 			);
 			productName = "Tactics replicaUITests";
-			productReference = 2EC55F522EA8DE5100588CCC /* Tactics replicaUITests.xctest */;
+			productReference = 2EC55F522EA8DE5100588CCC /* AccessibleTacticsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2EC55F362EA8DE4800588CCC /* Build configuration list for PBXProject "Tactics replica" */;
+			buildConfigurationList = 2EC55F362EA8DE4800588CCC /* Build configuration list for PBXProject "AccessibleTactics" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2EC55F3A2EA8DE4800588CCC /* Tactics replica */,
-				2EC55F472EA8DE5100588CCC /* Tactics replicaTests */,
-				2EC55F512EA8DE5100588CCC /* Tactics replicaUITests */,
+				2EC55F3A2EA8DE4800588CCC /* AccessibleTactics */,
+				2EC55F472EA8DE5100588CCC /* AccessibleTacticsTests */,
+				2EC55F512EA8DE5100588CCC /* AccessibleTacticsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		2EC55F4A2EA8DE5100588CCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2EC55F3A2EA8DE4800588CCC /* Tactics replica */;
+			target = 2EC55F3A2EA8DE4800588CCC /* AccessibleTactics */;
 			targetProxy = 2EC55F492EA8DE5100588CCC /* PBXContainerItemProxy */;
 		};
 		2EC55F542EA8DE5100588CCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2EC55F3A2EA8DE4800588CCC /* Tactics replica */;
+			target = 2EC55F3A2EA8DE4800588CCC /* AccessibleTactics */;
 			targetProxy = 2EC55F532EA8DE5100588CCC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -474,7 +474,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tactics replica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tactics replica";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccessibleTactics.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AccessibleTactics";
 			};
 			name = Debug;
 		};
@@ -496,7 +496,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tactics replica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tactics replica";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AccessibleTactics.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AccessibleTactics";
 			};
 			name = Release;
 		};
@@ -543,7 +543,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2EC55F362EA8DE4800588CCC /* Build configuration list for PBXProject "Tactics replica" */ = {
+		2EC55F362EA8DE4800588CCC /* Build configuration list for PBXProject "AccessibleTactics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2EC55F5A2EA8DE5100588CCC /* Debug */,
@@ -552,7 +552,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EC55F5C2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "Tactics replica" */ = {
+		2EC55F5C2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "AccessibleTactics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2EC55F5D2EA8DE5100588CCC /* Debug */,
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EC55F5F2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "Tactics replicaTests" */ = {
+		2EC55F5F2EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "AccessibleTacticsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2EC55F602EA8DE5100588CCC /* Debug */,
@@ -570,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EC55F622EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "Tactics replicaUITests" */ = {
+		2EC55F622EA8DE5100588CCC /* Build configuration list for PBXNativeTarget "AccessibleTacticsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2EC55F632EA8DE5100588CCC /* Debug */,

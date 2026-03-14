@@ -19,17 +19,17 @@ let competitions = myCompetitions
                     .font(.headline)
                     .padding(.horizontal)
                     .padding(.top, 8)
-
+                
                 // Matches List
                 List {
-
+                    
                     ForEach(competitions) { competition in
-
+                        
                         Section(header: Text(competition.name)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                         ) {
-
+                            
                             // MARK: Matches
                             ForEach(competition.matches) { match in
                                 NavigationLink(destination: MatchDetailView(match: match)) {
