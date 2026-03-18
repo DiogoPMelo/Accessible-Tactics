@@ -30,6 +30,12 @@ struct HomeTeamView: View {
     
     var playersByPosition: [[PlayerDisplayModel]] {
         
+        LineUpHelper.distributeByPosition(lineUp: home.getStartingLineUp(),
+                   formation: home.realFormation())
+    }
+    
+    var oldPlayersByPosition: [[PlayerDisplayModel]] {
+        
         var players = home.getStartingLineUp()
         var sectors = [[PlayerDisplayModel]]()
         
