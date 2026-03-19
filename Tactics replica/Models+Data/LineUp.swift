@@ -7,33 +7,6 @@
 
 import Foundation
 
-enum PositionalAwareness: String, CaseIterable, Codable {
-    case goalkeeper
-    case defender
-        case defensiveMidfielder
-    case midfielder
-    case attackingMidfielder
-    case winger
-    case forward
-
-    init(from playerEnum: Player.Position) {
-
-        switch (playerEnum) {
-            case .goalkeeper:
-                self = .goalkeeper
-
-            case .defender:
-                self = .defender
-
-            case .midfielder:
-                self = .midfielder
-
-            case .forward:
-                self = .forward
-        }
-    }
-}
-
 struct LineUp {
 
     let team: Team
@@ -85,38 +58,6 @@ return createBench()
     private func createBench() -> [Player] {
 
         team.players.filter { !starting.contains(($0.number) )}.sorted()
-    }
-
-    // TODO: Incomplete method to have more detailed positions
-    func detailedFormation() -> [(Int, PositionalAwareness)] {
-
-        let realFormation = realFormation()
-
-        print(name, formationAsString)
-
-        var complexFormation = realFormation.map { ($0.numberOfPlayers, PositionalAwareness.init(from: $0.position))}
-
-        if realFormation.count == 5 {
-
-            let mid1 = complexFormation[2].0
-            let mid2 = complexFormation[3].0
-            if mid1 == mid2 || (mid1 == 2 && mid2 == 3) {
-                complexFormation[2].1 = .defensiveMidfielder
-                complexFormation[3].1 = .attackingMidfielder
-            } else if mid1 > mid2 {
-                complexFormation[3].1 = .attackingMidfielder
-            } else if mid1 < mid2 {
-                complexFormation[2].1 = .defensiveMidfielder
-            }
-        } else if realFormation.count == 6 {
-
-            complexFormation[2].1 = .defensiveMidfielder
-            complexFormation[4].1 = .attackingMidfielder
-        }
-
-        complexFormation.forEach { print($0.1.rawValue) }
-
-        return complexFormation
     }
 
     var name: String {

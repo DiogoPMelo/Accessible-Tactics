@@ -8,13 +8,13 @@
 import Foundation
 
 var lineUps = [brazilLineUp, franceLineUp, greeceLineUp, italyLineUp, portugalLineUp, czechLineUp, germanyLineUp, netherlandsLineUp]
-    .shuffled()
+    //.shuffled()
 
 var lineUpsAlt = [brazilLineUpAlt, franceLineUpAlt, greeceLineUpAlt, italyLineUpAlt]
-    .shuffled()
+    //.shuffled()
 
 var lineUpsAlt2 = [brazilLineUpAlt2, franceLineUpAlt2, greeceLineUpAlt2, italyLineUpAlt2]
-    .shuffled()
+    //.shuffled()
 
 let myCompetitions: [Competition] = [
     Competition(

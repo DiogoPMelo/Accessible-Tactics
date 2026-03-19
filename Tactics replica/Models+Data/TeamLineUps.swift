@@ -14,7 +14,7 @@ let franceLineUp = LineUp(team: france2000,
 
 let brazilLineUp = LineUp(team: brazil2002,
                           formation: [3, 4, 2, 1],
-                          starting: [1, 3, 4, 5, 2, 15, 8, 6, 11, 10, 9],
+                          starting: [1, 4, 3, 5, 2, 15, 8, 6, 11, 10, 9],
                           bench: [12, 13, 14, 16, 7, 17, 21])
 
 let greeceLineUp = LineUp(team: greece2004,
@@ -60,8 +60,8 @@ let brazilLineUpAlt = LineUp(team: brazil2002,
                           bench: [])
 
 let greeceLineUpAlt = LineUp(team: greece2004,
-                          formation: [4, 1, 3, 2],
-                          starting: [1, 2, 19, 5, 14, 6, 7, 20, 8, 9, 15],
+                          formation: [4, 5, 1],
+                          starting: [1, 2, 19, 5, 14, 7, 21, 6, 20, 8, 9],
                           bench: [])
 
 let italyLineUpAlt = LineUp(team: italy2006,

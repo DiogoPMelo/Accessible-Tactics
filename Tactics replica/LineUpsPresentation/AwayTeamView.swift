@@ -34,6 +34,15 @@ struct AwayTeamView: View {
     
     var playersByPosition: [[PlayerDisplayModel]] {
         
+        LineUpHelper.distributeByPosition(lineUp: away.getStartingLineUp(),
+                   formation: away.realFormation(),
+                   initialPriority: sortingPriority,
+                   priorityIncrement: 0.08)
+        .reversed()
+    }
+    
+    var oldPlayersByPosition: [[PlayerDisplayModel]] {
+        
         var players = away.getStartingLineUp()
         players.reverse()
         
